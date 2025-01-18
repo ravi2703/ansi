@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                sh 'ansible localhost -m ping'
+            }
+        }
+        stage('ansible-playook') {
+            steps {
+                sh 'ansible-playbook -i localhost /root/ansi/main.yml'
+            }
+        }
+    }
+}
+

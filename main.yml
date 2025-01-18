@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  become: yes
+
+  tasks:
+  - name: update the system
+    apt:
+
+  - name: install nginx
+    apt:
+      name: nginx
+      state: present
+  - name: start the service
+    service:
+       name: nginx
+       state: started
+  - name: check the nginx version
+    command:
+      name: nginx
+      state: version
+    ignore_errors: yes
+
